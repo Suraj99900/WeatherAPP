@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import emoji
 from datetime import datetime
 
 # Function to get weather data from OpenWeatherMap API
@@ -37,12 +36,12 @@ def app():
                 # Display weather data with icons and better formatting
                 st.write(f"**Weather in {city}:**")
                 
-                # Icons for weather data
-                st.markdown(f"**Temperature**: {weather_data['main']['temp']}°C {emoji.emojize(':thermometer:')}")
-                st.markdown(f"**Weather**: {weather_data['weather'][0]['description'].capitalize()} {emoji.emojize(':partly_sunny:')}")
-                st.markdown(f"**Humidity**: {weather_data['main']['humidity']}% {emoji.emojize(':sweat_drops:')}")
-                st.markdown(f"**Pressure**: {weather_data['main']['pressure']} hPa {emoji.emojize(':cloud_with_rain:')}")
-                st.markdown(f"**Wind Speed**: {weather_data['wind']['speed']} m/s {emoji.emojize(':dash:')}")
+                # Unicode characters for weather data
+                st.markdown(f"**Temperature**: {weather_data['main']['temp']}°C 🌡️")
+                st.markdown(f"**Weather**: {weather_data['weather'][0]['description'].capitalize()} 🌤️")
+                st.markdown(f"**Humidity**: {weather_data['main']['humidity']}% 💧")
+                st.markdown(f"**Pressure**: {weather_data['main']['pressure']} hPa ☁️")
+                st.markdown(f"**Wind Speed**: {weather_data['wind']['speed']} m/s 🌬️")
                 
                 # Sunrise and Sunset (convert from Unix timestamp to readable format)
                 sunrise = datetime.utcfromtimestamp(weather_data['sys']['sunrise']).strftime('%H:%M:%S')
